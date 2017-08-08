@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\bulletController.cs" />
+     <Compile Include="Assets\_Scripts\cameraManager.cs" />
      <Compile Include="Assets\_Scripts\enemyController.cs" />
      <Compile Include="Assets\_Scripts\enemyHealthManager.cs" />
      <Compile Include="Assets\_Scripts\enemySpawner.cs" />
