@@ -49,6 +49,7 @@
      <Compile Include="Assets\_Scripts\bulletController.cs" />
      <Compile Include="Assets\_Scripts\enemyController.cs" />
      <Compile Include="Assets\_Scripts\enemyHealthManager.cs" />
+     <Compile Include="Assets\_Scripts\enemySpawner.cs" />
      <Compile Include="Assets\_Scripts\gunController.cs" />
      <Compile Include="Assets\_Scripts\hurtPlayer.cs" />
      <Compile Include="Assets\_Scripts\playerHealthManager.cs" />
