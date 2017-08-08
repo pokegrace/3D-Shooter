@@ -9,10 +9,22 @@ public class enemyHealthManager : MonoBehaviour {
 	public int health;
 	private int currentHealth;
 
+	// to make enemy flash if hurt
+	public float flashLength;
+	private float flashCounter;
+
+	private Renderer rend;
+	private Color storedColor;
+
 	// Use this for initialization
 	void Start () {
 
 		currentHealth = health;
+
+		rend = GetComponent<Renderer> ();
+
+		// store original enemy material color
+		storedColor = rend.material.GetColor("_Color");
 
 	}
 	
@@ -24,10 +36,24 @@ public class enemyHealthManager : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
+
+		// makes enemy flash color
+		if (flashCounter > 0) 
+		{
+			flashCounter -= Time.deltaTime;
+
+			if (flashCounter <= 0) 
+			{
+				rend.material.SetColor ("_Color", storedColor);
+			}
+
+		}
 	}
 
 	public void HurtEnemy(int damage){
 
 		currentHealth -= damage;
+		flashCounter = flashLength;
+		rend.material.SetColor ("_Color", Color.white);
 	}
 }

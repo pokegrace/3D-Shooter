@@ -7,8 +7,7 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour {
 
 	// array of different enemies
-	//public GameObject[] enemies;
-	public GameObject enemy;
+	public GameObject[] enemies;
 
 	public Vector3 spawnValues;
 	public float spawnWait;
@@ -18,7 +17,7 @@ public class enemySpawner : MonoBehaviour {
 	public bool stop;
 
 	// integer to decide which enemy to spawn
-	//int randEnemy;
+	int randEnemy;
 
 	// Use this for initialization
 	void Start () {
@@ -44,15 +43,16 @@ public class enemySpawner : MonoBehaviour {
 		// neverending loop right now
 		while (!stop) 
 		{
-			// picking random enemy to spawn
-			// randEnemy = Random.Range (0, 4);
+			// picking random enemy (int) to spawn
+			randEnemy = Random.Range (0, enemies.Length);
 
 			// picking where to spawn enemy
-			Vector3 spawnPosition = new Vector3 (Random.Range(-spawnValues.x, spawnValues.x), 1, Random.Range(-spawnValues.z, spawnValues.z)); // (x, y, z)
+			Vector3 spawnPosition = new Vector3 (Random.Range(-spawnValues.x, spawnValues.x), 1, 
+													Random.Range(-spawnValues.z, spawnValues.z)); // (x, y, z)
 
 			// to actually spawn objects
 			// (what to spawn, where to spawn, and rotation)
-			Instantiate (enemy, spawnPosition + transform.TransformPoint(0,0,0), gameObject.transform.rotation);
+			Instantiate (enemies[randEnemy], spawnPosition + transform.TransformPoint(0,0,0), gameObject.transform.rotation);
 
 			yield return new WaitForSeconds (spawnWait);
 		}
