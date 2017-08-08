@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // script to manage player health
 // code from: gamesplusjames
 public class playerHealthManager : MonoBehaviour {
 
-	public int startingHealth;
 	private int currentHealth;
 
 	// to make player flash if hurt
@@ -19,7 +19,7 @@ public class playerHealthManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		currentHealth = startingHealth;
+		currentHealth = 20;
 
 		rend = GetComponent<Renderer> ();
 
@@ -33,7 +33,7 @@ public class playerHealthManager : MonoBehaviour {
 
 		if (currentHealth <= 0) 
 		{
-			gameObject.SetActive (false);
+			SceneManager.LoadScene ("gameOver");
 		}
 
 		// makes player flash color
@@ -51,10 +51,13 @@ public class playerHealthManager : MonoBehaviour {
 
 	}
 
+	// manage color flash and health
 	public void HurtPlayer(int damageAmount)
 	{
 		currentHealth -= damageAmount;
 		flashCounter = flashLength;
 		rend.material.SetColor ("_Color", Color.red);
+
+		healthUI.playerHealth -= damageAmount;
 	}
 }

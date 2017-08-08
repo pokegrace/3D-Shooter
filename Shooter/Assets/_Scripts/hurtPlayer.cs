@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// script used to manage damage given to player
+// script used to manage damage given to player based on collision
 // code from: gamesplusjames
 public class hurtPlayer : MonoBehaviour {
 
