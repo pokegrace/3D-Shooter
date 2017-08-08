@@ -55,6 +55,7 @@
      <Compile Include="Assets\_Scripts\hurtPlayer.cs" />
      <Compile Include="Assets\_Scripts\playerHealthManager.cs" />
      <Compile Include="Assets\_Scripts\playerMovement.cs" />
+     <Compile Include="Assets\_Scripts\scoreManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

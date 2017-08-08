@@ -16,6 +16,9 @@ public class enemyHealthManager : MonoBehaviour {
 	private Renderer rend;
 	private Color storedColor;
 
+	// to keep score
+	public int pointScored;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,6 +38,7 @@ public class enemyHealthManager : MonoBehaviour {
 		if (currentHealth <= 0) 
 		{
 			Destroy (gameObject);
+			scoreManager.Score += pointScored;
 		}
 
 		// makes enemy flash color
